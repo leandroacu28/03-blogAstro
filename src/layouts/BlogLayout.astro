@@ -7,12 +7,16 @@ import '../styles/blog.css';
 // }
 // la interface title no significa que es la unica props que me estan mandando, usamos el operar ..rest pra ver todo lo que estmaos recibiendo
 
-const {title, ...rest }=Astro.props;
+// const {title, ...rest }=Astro.props;
 //console.log(rest)
 
-const frontmatter= rest.frontmatter;
-console.log("desdel el archivo componente bloglayout imprimiendo los Frontmatter del post01.mdx");
+// const frontmatter= rest.frontmatter;
+// console.log("desdel el archivo componente bloglayout imprimiendo los Frontmatter del post01.mdx");
 // console.log(frontmatter);
+
+//Colecciones
+const {title}=Astro.props;
+
 ---
 
 <html lang="en">
@@ -22,7 +26,11 @@ console.log("desdel el archivo componente bloglayout imprimiendo los Frontmatter
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<!-- usando el frontmatter.title, tome el valor de title que esta en el archivo post-01mdx -->
-		<title>{frontmatter.title}</title> 
+		<!-- <title>{frontmatter.title}</title> -->
+
+		<!-- colecciones -->
+		<title>{title}</title> 
+
 
         <ViewTransitions></ViewTransitions>
 	</head>

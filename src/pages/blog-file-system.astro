@@ -1,15 +1,16 @@
 ---
-import { getCollection } from "astro:content";
 import { siteConfig } from "../config/site-config";
 import MainLayout from "../layouts/MainLayout.astro";
-import TypedBlogPost from "src/components/TypedBlogPost.astro";
-
-//para usar nuestro blogpost usamos lo siguiente:
-
-const blogPosts= await getCollection('blog');
-// console.log(blogPosts);
+import BlogPost from "../components/BlogPost.astro"
 
 
+//Astro nos ofrece un objeto gloal llamado astro y dentro hay un metodo llamado blog
+//https://docs.astro.build/en/reference/api-reference/
+//Este comando nos va a permitir leer todos nuestro archivos md o mdx
+const posts= await Astro.glob("./posts-old/*{md,mdx}");
+console.log('index.astro'); 
+// console.log(posts);
+//Retorna los datos de los post
 ---
 
 <MainLayout title="Leandro Blog">
@@ -19,18 +20,14 @@ const blogPosts= await getCollection('blog');
         <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">{siteConfig.title}</h1>
 		
 
-        <!-- <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2"> -->
+        <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
 			<!-- Vamos a tomar los post(la data de los archivos md, mdx) y los recorremos -->
 			<!-- el post viene con muchis datos del md,mmdx, los cuales se los vamos a pasar  como argumentos al componente BlogPost -->
-			<!-- {
+			{
 			posts.map(post => <BlogPost {...post} />)
-			} -->
+			}
             
-        <!-- </div> -->
-        <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-			{blogPosts.map((post) => <TypedBlogPost post={post} />)}
         </div>
-
     </div>
 </section>
 </MainLayout>
