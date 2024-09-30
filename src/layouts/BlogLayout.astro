@@ -1,0 +1,35 @@
+---
+import ViewTransitions from 'astro/components/ViewTransitions.astro';
+import '../styles/blog.css';
+
+// interface Props {
+// 	title?: string;
+// }
+// la interface title no significa que es la unica props que me estan mandando, usamos el operar ..rest pra ver todo lo que estmaos recibiendo
+
+const {title, ...rest }=Astro.props;
+//console.log(rest)
+
+const frontmatter= rest.frontmatter;
+console.log("desdel el archivo componente bloglayout imprimiendo los Frontmatter del post01.mdx");
+// console.log(frontmatter);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<!-- usando el frontmatter.title, tome el valor de title que esta en el archivo post-01mdx -->
+		<title>{frontmatter.title}</title> 
+
+        <ViewTransitions></ViewTransitions>
+	</head>
+	<body class="bg-gray-900">
+		<main class="mb-1 max-w-5xl m-auto px-2 py-2">
+			<a href="/" class="text-red-600">Regresar</a>
+			<slot />
+		</main>
+	</body>
+</html>

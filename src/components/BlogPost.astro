@@ -1,0 +1,25 @@
+---
+import {Formatter} from '@utils/formatter'
+
+
+// const props=Astro.props;
+// console.log('Salida de BlogPost.astro');
+// console.log(props); esto retorna el frontmatter, file,url todo lo que estan en los archivos md
+
+//Desestructuramos las props
+const {frontmatter, url }=Astro.props;
+console.log('Desestructuramos las props');
+console.log(frontmatter, url);
+---
+
+<div class="lg:flex">
+    <img class="object-cover w-full h-56 rounded-lg lg:w-64" src={frontmatter.image} alt={frontmatter.title}>
+
+    <div class="flex flex-col justify-between py-6 lg:mx-6">
+        <a href={url} class="text-xl font-semibold  hover:underline text-white ">
+            {frontmatter.description}
+        </a>
+        
+        <span class="text-sm  dark:text-gray-300">{Formatter.formatDate(frontmatter.date)}</span>
+    </div>
+</div>
