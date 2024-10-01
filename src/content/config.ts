@@ -8,16 +8,16 @@ const blogCollection = defineCollection({
     //data(metadata, osea la informacion en bruto, como por ejemplo un JSON o YAML)
     type:'content',
     schema: z.object({
-        title: z.string(),
-        date: z.date(), 
-        description: z.string(),
-        image: z.string(),
-       
-        // Relacion
-        author: z.string(),
+    title: z.string(),
+    date: z.date(), 
+    description: z.string(),
+    image: z.string(),
 
-        // Relacion
-        tags: z.array (z.string()), 
+    // Relacion
+    author: z.string(),
+
+    // Relacion
+    tags: z.array(z.string()), 
     }),
 });
 
@@ -25,4 +25,4 @@ const blogCollection = defineCollection({
 //la informacion la vamos a grabar en un directorio dentro de content que tiene que tener el nombre blog
 export const collections={
     'blog':blogCollection,
-}
+};

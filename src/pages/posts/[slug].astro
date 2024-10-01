@@ -21,9 +21,9 @@ export const getStaticPaths = (async () => {
 // const {title}=Astro.props;
 
 const {post}=Astro.props;
-
+console.log(post);
 ---
 
-<BlogLayout title:{post}>
+<BlogLayout title={post.data.title}>
     <h1>Hola Mundo</h1>
 </BlogLayout>   
