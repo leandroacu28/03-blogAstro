@@ -1,5 +1,7 @@
 html {
     @apply bg-gray-900 px-10;
+    /* suavizar cuando brinca de seccion  */
+    scroll-behavior: smooth;
   }
   
   body {

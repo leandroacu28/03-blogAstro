@@ -21,9 +21,33 @@ export const getStaticPaths = (async () => {
 // const {title}=Astro.props;
 
 const {post}=Astro.props;
-console.log(post);
+const frontmatter= post.data;
+
+const {Content,headings}=await post.render();
+console.log(headings);
 ---
 
-<BlogLayout title={post.data.title}>
-    <h1>Hola Mundo</h1>
+<BlogLayout title={frontmatter.title}>
+    <h1 class="text-xs text-gray-500 mb-0">{frontmatter.title}</h1>
+    <h4 class="text-md text-gray-400 mb-0">{frontmatter.author}</h4>
+
+    <!-- Tabla de Contenidos  -->
+     <h3 class="">Tabla de contenidos</h3>
+    <ol>
+        {
+            headings.map((heading, index) => (
+                <li>
+                    <a href={`#${heading.slug}`}>{index+1} - {heading.text}</a>
+                </li>
+            ))
+        }
+    </ol>
+
+    <!-- Contenido -->
+    <Content />
+
+    <div class="my-20">
+        <a href="#btn-back" class="Text text-yellow-400">Ir arriba</a>
+    </div>
+
 </BlogLayout>   

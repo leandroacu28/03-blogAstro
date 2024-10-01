@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "src/layouts/MainLayout.astro";
+
+
+---
+
+<MainLayout title="Imagenes">
+    <h1 class="text-5xl text-white">Imágenes</h1>
+    <!-- Loading=leager carga todas las imagen de la pagina, mientras que lazy solo las cargas cuando son visible en pantalla -->
+    <img 
+    loading="eager" 
+    src="/assets/images/post-05.png" 
+    width="250" 
+    height="250" alt="" />
+    
+
+    <Image
+    loading="eager" 
+    src="/assets/images/post-05.png" 
+    width="250" 
+    height="250" alt="imagen del post" />
+    
+    </Image>
+
+
+
+
+    <div style={{
+        height:'3000px',
+    }}>
+
+    </div>
+
+    <img 
+    loading="lazy"
+    src="/assets/images/post-05.png" width="250" height="250" alt="">
+
+
+</MainLayout>
