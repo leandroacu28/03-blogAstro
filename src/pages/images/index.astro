@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import MainLayout from "src/layouts/MainLayout.astro";
 
 
+import post05 from '@images/post-05.png';
 ---
 
 <MainLayout title="Imagenes">
@@ -17,10 +18,9 @@ import MainLayout from "src/layouts/MainLayout.astro";
 
     <Image
     loading="eager" 
-    src="/assets/images/post-05.png" 
+    src={post05} 
     width="250" 
-    height="250" alt="imagen del post" />
-    
+    height="250" alt="imagen del post"/>
     </Image>
 
 
@@ -34,7 +34,7 @@ import MainLayout from "src/layouts/MainLayout.astro";
 
     <img 
     loading="lazy"
-    src="/assets/images/post-05.png" width="250" height="250" alt="">
+    src="/assets/images/post-05.png" width="250" height="250" alt="imagen del post">
 
 
 </MainLayout>
