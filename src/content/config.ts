@@ -1,5 +1,5 @@
 
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 
 
@@ -37,7 +37,8 @@ const blogCollection = defineCollection({
         }),
 
     // Relacion
-    author: z.string(),
+    // author: z.string(),
+    author:reference('author'),
 
     // Relacion
     tags: z.array(z.string()), 
@@ -45,8 +46,24 @@ const blogCollection = defineCollection({
 });
 
 
+
+//Coleccion de Autores
+const authorCollection = defineCollection({
+    type:'data',
+    schema: ({image})=> 
+    z.object({
+        name: z.string(),
+        avatar: image(), 
+        }),
+});
+
+
+
+
 // exportamos la coleccion, le vamos a poder nombre blog que va apuntar al blog colection
 //la informacion la vamos a grabar en un directorio dentro de content que tiene que tener el nombre blog
 export const collections={
+    'author':authorCollection,
     'blog':blogCollection,
+
 };
