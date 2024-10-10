@@ -10,13 +10,33 @@
         "avatar": {
           "type": "string"
         },
+        "twitter": {
+          "type": "string"
+        },
+        "linkedIn": {
+          "type": "string"
+        },
+        "github": {
+          "type": "string"
+        },
+        "bio": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "name",
-        "avatar"
+        "avatar",
+        "twitter",
+        "linkedIn",
+        "github",
+        "bio",
+        "subtitle"
       ],
       "additionalProperties": false
     }
